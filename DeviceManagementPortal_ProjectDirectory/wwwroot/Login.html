@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+    <link href="../lib/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <script src="../lib/jquery/jquery.js"></script>
+    <script src="lib/twitter-bootstrap/js/bootstrap.js"></script>
+    <script src="../js/login.js" defer></script>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-primary">
+        <a class="navbar-brand" href="Index.html"><b>Device Management Portal</b></a>
+    </nav>
+    <div class="container">
+        <h2 class="m-2">Login</h2>
+        <div class="row border border-top">
+            <div class="col-md-8">
+                <form class="p-2" id="loginForm" method="post" action="">
+                    <div class="form-group">
+                        <input type="hidden" class="form-control" name="redirectUrl" id="hiddenFieldRedirectUrl" value="" />
+                    </div>
+                    <div class="form-group">
+                        <label for="userName"><b>User Name</b></label>
+                        <input type="text" class="form-control" name="userName" id="textBoxUserName" />
+                        <div id="userNameValidationDiv" class="hidden"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password"><b>Password</b></label>
+                        <input type="password" class="form-control" name="password" id="textBoxPassword" />
+                        <div id="passwordValidationDiv" class="hidden"></div>
+                    </div>
+                    <button type="submit" id="btnAddFormSubmit" class="btn btn-primary">Login</button>
+                    <button type="button" id="btnCancel" class="btn btn-light">Cancel</button>
+                    <div id="loginActionErrorDiv" class="hidden p-1"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

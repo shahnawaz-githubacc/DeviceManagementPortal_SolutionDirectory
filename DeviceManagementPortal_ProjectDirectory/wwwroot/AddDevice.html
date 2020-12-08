@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Add Device</title>
+    <link href="../lib/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <script src="../lib/jquery/jquery.js"></script>
+    <script src="lib/twitter-bootstrap/js/bootstrap.js"></script>
+    <script src="../js/addDevice.js" defer></script>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-primary">
+        <a class="navbar-brand" href="Index.html"><b>Device Management Portal</b></a>
+    </nav>
+    <div class="container">
+        <h2 class="m-2">Add Device</h2>
+        <a href="Index.html">Back To Index</a>
+        <div class="row border border-top">
+            <div class="col-md-8">
+                <form class="p-2" id="addForm" method="post" action="">
+                    <div class="form-group">
+                        <label for="deviceImei"><b>Device IMEI</b></label>
+                        <input type="text" class="form-control" name="deviceImei" id="textBoxDeviceImei" />
+                        <div id="deviceImeiValidationDiv" class="hidden"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="model"><b>Model</b></label>
+                        <input type="text" class="form-control" name="model" id="textBoxModel" />
+                        <div id="deviceModelValidationDiv" class="hidden"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="simCardNumber"><b>SIM Card Number</b></label>
+                        <input type="text" class="form-control" name="simCardNumber" id="textBoxSimCardNumber" />
+                        <div id="deviceSimCardNumberValidationDiv" class="hidden"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="simCardNumber"><b>Status (Enabled / Disabled)</b></label>
+                        <select name="enabled" id="selectEnabled" class="form-control">
+                            <option value="false" selected>Disabled</option>
+                            <option value="true">Enabled</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group border border-primary m-2 p-4">
+                        <div class="col-md-12">
+                            <h4><b>Device Backend Mapping Table Section</b></h4>
+                            <div id="innerPanel">
+                                <input type="button" id="btnModalTrigger" disabled="disabled" class="btn btn-primary m-2" data-toggle="modal" data-target="#modalPopup" value="Add Mapping" />
+                                <div class="table-responsive overflow-auto" id="relationSectionDiv">
+                                    <table class="table table-bordered table-hover" id="tableData">
+                                        <thead>
+                                            <tr class="text-center">
+                                                <th>Device IMEI</th>
+                                                <th>Backend Name</th>
+                                                <th><i>Actions</i></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tableBody">
+                                            <tr><td colspan="3" class="text-center text-info"><i>No mapping(s)</i></td></tr>
+                                        </tbody>
+                                    </table>
+                                    <div id="tablePaging"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="btnAddFormSubmit" class="btn btn-primary">Save</button>
+                    <button type="button" id="btnCancel" class="btn btn-light" onclick="window.location.href = 'Index.html'">Cancel</button>
+                    <div id="addActionErrorDiv" class="hidden p-1"></div>
+                </form>
+
+                <!-- Modal -->
+                <div class="modal fade" id="modalPopup" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalLabel">Map Device with Backend</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div id="modalInnerBody" class="modal-body"><span id="spanLoadingInfo" class="text-info"><i>Loading...</i></span></div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button id="btnModalMapAndClose" onclick="mapAndCloseModal();" type="button" class="btn btn-primary">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
