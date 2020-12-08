@@ -7,4 +7,4 @@ Backend: ASP.NET Core Web API (.NET Core 3.1) + EF Core
 Database: MS SQL Server 2016
 
 Database Server login requires Windows Authentication.
-User Credentials: admin / admin@123
+Application Login Credentials: admin / admin@123
